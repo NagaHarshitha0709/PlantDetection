@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Identification</title>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #EFEFEF; /* Light gray background */
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        h1 {
+            background: linear-gradient(135deg, #339966, #336699);
+            color: white;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            text-align: center;
+            font-size: 36px;
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+        /* Inspirational text styles */
+        .inspirational-text {
+            text-align: center;
+            font-size: 18px; /* Smaller font size */
+            color: #1E90FF;
+            margin-top: 20px;
+            font-style: italic; /* Italics for the quotes */
+        }
+
+        /* Introduction section styles */
+        .intro-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-title {
+            font-size: 28px;
+            color: #339966;
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Form styles */
+        form {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* File input styles */
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #336699;
+        }
+
+        label {
+            background: linear-gradient(135deg, #339966, #336699);
+            color: white;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        label:hover {
+            transform: translateY(-3px);
+        }
+
+        input[type="submit"] {
+            display: none;
+            background: linear-gradient(135deg, #339966, #336699);
+            color: white;
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Heading styles */
+        h2, h3 {
+            margin-top: 20px;
+            color: #339966;
+        }
+
+        /* Paragraph styles */
+        p {
+            margin: 10px 0;
+        }
+
+        .message {
+            color: #FF5733;
+            font-weight: bold;
+        }
+
+        /* Predicted plant styles */
+        .predicted-plant {
+            font-size: 24px;
+            font-weight: bold;
+            color: #336699;
+        }
+
+        /* Plant description styles */
+        .plant-description {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Image preview styles */
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: none;
+            border-radius: 10px;
+        }
+
+        /* Additional styling for a better appearance */
+        .highlight-text {
+            font-size: 24px;
+            color: #336699;
+        }
+
+        /* Vibrant box styles */
+        .vibrant-box {
+            background-color: #f3f3f3;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Plant Identification</h1>
+
+    <!-- Inspirational text with quotes icon -->
+    <p class="inspirational-text"><i class="fas fa-quote-left"></i> There are no incurable diseases — only the lack of will. There are no worthless herbs — only the lack of knowledge <i class="fas fa-quote-right"></i></p>
+
+    <!-- Introduction to the plant identification tool -->
+    <div class="intro-container">
+        <!-- Intro Title with leaf icon -->
+        <h2 class="intro-title"><i class="fas fa-leaf icon"></i>Welcome to our Plant Identification Tool</h2>
+        <p class="intro-text">
+            Our plant identification tool is designed to help you identify various plant species quickly and effortlessly. Simply upload an image of a plant, and our tool will provide you with information about the plant's name, description, and potential uses.
+        </p>
+        <p class="intro-text">
+            Whether you're a nature enthusiast, gardener, or simply curious about the plant world, our tool can assist you in learning more about the incredible diversity of plant life around us.
+        </p>
+        <p class="intro-text">
+            Explore the beauty of nature and enhance your knowledge with the help of our Plant Identification Tool.
+        </p>
+    </div>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <!-- Add a container for the image preview -->
+            <div id="image-preview-container">
+                <img src="#" alt="Image Preview" id="image-preview" class="image-preview">
+            </div>
+
+            <!-- File Input Label with leaf and image icons -->
+            <label for="file" id="file-label"><i class="fas fa-image file-icon"></i><i class="fas fa-leaf file-icon"></i> Choose an Image</label>
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" id="file" onchange="displayFileName(this)">
+            <input type="submit" value="Upload" id="upload-button">
+        </form>
+
+        {% if predicted_plant %}
+        <div class="vibrant-box">
+            <h2 class="highlight-text"><i class="fas fa-leaf icon"></i> Predicted Plant:</h2>
+            <p class="plant-output"><span class="predicted-plant big-text">{{ predicted_plant }}</span></p>
+        </div>
+
+        <div class="vibrant-box">
+            <h2 class="highlight-text"><i class="fas fa-leaf icon"></i> Plant Description:</h2>
+            <p class="plant-description">{{ plant_description }}</p>
+        </div>
+        <div class="vibrant-box">
+            <h3 class="highlight-text"><i class="fas fa-leaf icon"></i> Uses:</h3>
+            <p class="plant-description">{{ plant_uses }}</p>
+        </div>
+        
+        {% endif %}
+
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+    <script>
+        function displayFileName(input) {
+            const fileInput = input;
+            const fileName = fileInput.value.split("\\").pop();
+            document.getElementById("file-label").textContent = fileName || "Choose an Image";
+            document.getElementById("upload-button").style.display = fileName ? "inline-block" : "none";
+
+            // Image preview logic
+            const imagePreview = document.getElementById("image-preview");
+            const imagePreviewContainer = document.getElementById("image-preview-container");
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block"; // Show the image preview
+                    imagePreviewContainer.style.display = "block"; // Show the image preview container
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                imagePreview.style.display = "none"; // Hide the image preview if no file is selected
+                imagePreviewContainer.style.display = "none"; // Hide the image preview container
+            }
+        }
+    </script>
+</body>
+</html>
